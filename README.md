@@ -49,3 +49,9 @@ A PowerBI dashboard has been created using the GE_Data table from the dataspark_
 - Sales trends over time
 - Store performance
 - Customer segmentation
+
+![screenshot_1](screenshots/page_1.png)
+
+![screenshot_2](screenshots/page_2.png)
+
+![screenshot_3](screenshots/page_3.png)
