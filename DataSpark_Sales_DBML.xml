@@ -1,0 +1,54 @@
+Table Sales {
+    "Order Number" int [pk, note: "Unique ID for each order"]
+    "Line Item" int [note: "Identifies individual products purchased as part of an order"]
+    "Order Date" date [note: "Date the order was placed"]
+    // "Delivery Date" date [note: "Date the order was delivered"] 
+    "CustomerKey" int [ref: > Customers.CustomerKey, note: "Unique key identifying which customer placed the order"]
+    "StoreKey" int [ref: > Stores.StoreKey, note: "Unique key identifying which store processed the order"]
+    "ProductKey" int [ref: > Products.ProductKey, note: "Unique key identifying which product was purchased"]
+    Quantity int [note: "Number of items purchased"]
+    "Currency Code" varchar [note: "Currency used to process the order"]
+}
+
+Table Customers {
+    CustomerKey int [pk, note: "Primary key to identify customers"]
+    Gender varchar(10) [note: "Customer gender"]
+    Name varchar [note: "Customer full name"]
+    City varchar [note: "Customer city"]
+    "State Code" varchar(10) [note: "Customer state (abbreviated)"]
+    State varchar [note: "Customer state (full)"]
+    "Zip Code" varchar(20) [note: "Customer zip code"]
+    Country varchar [note: "Customer country"]
+    Continent varchar [note: "Customer continent"]
+    Birthday date [note: "Customer date of birth"]
+}
+
+Table Products {
+    ProductKey int [pk, note: "Primary key to identify products"]
+    "Product Name" varchar [note: "Product name"]
+    Brand varchar [note: "Product brand"]
+    Color varchar [note: "Product color"]
+    "Unit Cost USD" decimal(10, 2) [note: "Cost to produce the product in USD"]
+    "Unit Price USD" decimal(10, 2) [note: "Product list price in USD"]
+    SubcategoryKey int [note: "Key to identify product subcategories"]
+    Subcategory varchar [note: "Product subcategory name"]
+    CategoryKey int [note: "Key to identify product categories"]
+    Category varchar [note: "Product category name"]
+}
+
+Table Stores {
+    StoreKey int [pk, note: "Primary key to identify stores"]
+    Country varchar [note: "Store country"]
+    State varchar [note: "Store state"]
+    "Square Meters" int [note: "Store footprint in square meters"]
+    "Open Date" date [note: "Store open date"]
+}
+
+Table "Exchange Rates" {
+    Date date [note: "Date"]
+    Currency varchar [note: "Currency code"]
+    Exchange decimal(10, 4) [note: "Exchange rate compared to USD"]
+}
+
+
+Ref: "Exchange Rates".Date < Sales."Order Date"
