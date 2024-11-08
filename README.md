@@ -42,6 +42,10 @@ Follow these steps to set up and run DataSpark locally.
 3. **Run the Cells**  
    Execute all cells in the notebook to begin data preprocessing and analysis.
 
+### ER Diagram
+
+![ER Diagram](DataSpark_Sales.png)
+
 ###  PowerBI Dashboard
 
 A PowerBI dashboard has been created using the GE_Data table from the dataspark_database as the data source. This dashboard visualizes key insights, including:
