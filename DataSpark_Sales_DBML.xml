@@ -1,5 +1,5 @@
 Table Sales {
-    "Order Number" int [pk, note: "Unique ID for each order"]
+    "Order Number" int [note: "Unique ID for each order"]
     "Line Item" int [note: "Identifies individual products purchased as part of an order"]
     "Order Date" date [note: "Date the order was placed"]
     // "Delivery Date" date [note: "Date the order was delivered"] 
